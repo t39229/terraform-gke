@@ -1,15 +1,14 @@
 # Terraform provider for Google Cloud
 provider "google" {
-  project = "terrafom-436819"
-  region  = "us-central1"
+  project = var.project
+  region  = var.region
 }
 
 # Create terraform backend and bucket
 terraform {
   backend "gcs" {
-    bucket = "tortor-tf-state-staging"
+    bucket = "bradmeh-tf-state-staging"
     prefix = "terraform/state"
-
   }
   required_providers {
     google = {
